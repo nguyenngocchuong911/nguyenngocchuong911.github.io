@@ -126,28 +126,10 @@ ul li { margin-bottom: 8px; }
 
 /* ===== Cyber Threat Map section ===== */
 .map-card h2 { margin-top: 0; }
-.map-controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-}
-.pill {
-    background: rgba(11, 116, 222, 0.1);
-    color: #0f172a;
-    border: 1px solid rgba(11,116,222,0.35);
-    padding: 6px 10px;
-    border-radius: 999px;
-    cursor: pointer;
-    font-size: 14px;
-}
-.pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-
 .map-embed {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/9; /* responsive 16:9 */
+    aspect-ratio: 16/9;
     background: #000;
     border-radius: 12px;
     overflow: hidden;
@@ -157,17 +139,6 @@ ul li { margin-bottom: 8px; }
     position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
 }
 .map-note { color: var(--muted); font-size: 13px; margin-top: 8px; }
-
-/* Fullscreen modal */
-.modal {
-    position: fixed; inset: 0; display: none; align-items: center; justify-content: center;
-    background: rgba(0,0,0,0.9); z-index: 9999; padding: 24px;
-}
-.modal.open { display: flex; }
-.modal .frame { width: 92vw; height: 84vh; border-radius: 12px; overflow: hidden; }
-.modal .close {
-    position: absolute; top: 16px; right: 16px; background: #fff; color: #000; border: 0; border-radius: 999px; width: 42px; height: 42px; font-size: 20px; cursor: pointer;
-}
 
 @media(max-width:768px){
     header { flex-direction: column; text-align: center; }
@@ -210,28 +181,13 @@ ul li { margin-bottom: 8px; }
       </div>
   </header>
 
-  <!-- ====== NEW: Cyber Threat Map Section ====== -->
+  <!-- ====== Cyber Threat Map Section (Check Point) ====== -->
   <section class="map-card" id="cybermap">
-    <h2 data-vi="Bản đồ tấn công mạng (Realtime)" data-en="Cyber Threat Live Map (Realtime)">Bản đồ tấn công mạng (Realtime)</h2>
-
-    <div class="map-controls">
-      <span class="icon">🌍</span>
-      <button class="pill active" id="btnRealtime" data-vi="Realtime" data-en="Realtime">Realtime</button>
-      <button class="pill" id="btnStatic" data-vi="Tĩnh" data-en="Static">Tĩnh</button>
-      <span style="flex:0 0 10px"></span>
-      <button class="pill active" id="btnDark" data-vi="Tối" data-en="Dark">Tối</button>
-      <button class="pill" id="btnLight" data-vi="Sáng" data-en="Light">Sáng</button>
-      <span style="flex:1"></span>
-      <button class="btn" id="btnFullscreen" data-vi="Xem toàn màn hình" data-en="Fullscreen">Xem toàn màn hình</button>
-    </div>
-
+    <h2 data-vi="Bản đồ tấn công mạng (Realtime)" data-en="Cyber Threat Live Map (Realtime)">Cyber Threat Live Map (Check Point)</h2>
     <div class="map-embed">
-      <iframe id="kMap" title="Kaspersky Cybermap"
-        src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" 
-        loading="lazy" allow="fullscreen">
-      </iframe>
+      <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
     </div>
-    <div class="map-note" data-vi="Nguồn dữ liệu: Kaspersky Cybermap — Widget chính thức, hiển thị theo thời gian thực." data-en="Data source: Kaspersky Cybermap — Official widget, real‑time display.">Nguồn dữ liệu: Kaspersky Cybermap — Widget chính thức, hiển thị theo thời gian thực.</div>
+    <div class="map-note" data-vi="Nguồn dữ liệu: Check Point Threat Map — hiển thị theo thời gian thực." data-en="Data source: Check Point Threat Map — real‑time display.">Nguồn dữ liệu: Check Point Threat Map — hiển thị theo thời gian thực.</div>
   </section>
 
   <section>
@@ -292,65 +248,13 @@ ul li { margin-bottom: 8px; }
 
 </div>
 
-<!-- Fullscreen modal for map -->
-<div class="modal" id="mapModal" aria-hidden="true">
-  <button class="close" id="btnCloseModal" title="Close">✕</button>
-  <div class="frame">
-    <iframe id="kMapFull" title="Kaspersky Cybermap Fullscreen" src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" allow="fullscreen"></iframe>
-  </div>
-</div>
-
 <script>
-  // ===== Language toggle (existing) + sync cybermap lang =====
   function setLanguage(lang){
       document.querySelectorAll('[data-vi]').forEach(el=>{
           el.innerHTML = el.getAttribute('data-'+lang);
       });
-      // Sync map language (Kaspersky supports 'en' & 'vi')
-      if(['en','vi'].includes(lang)){
-        mapState.lang = lang;
-        updateMapSrc();
-      }
   }
-  setLanguage('vi'); // default
-
-  // ===== Cybermap controls =====
-  const mapState = { lang: 'en', type: 'dynamic', theme: 'dark' };
-  const kMap = document.getElementById('kMap');
-  const kMapFull = document.getElementById('kMapFull');
-
-  function buildSrc(){
-    return `https://cybermap.kaspersky.com/${mapState.lang}/widget/${mapState.type}/${mapState.theme}`;
-  }
-  function updateMapSrc(){
-    const src = buildSrc();
-    kMap.src = src;
-    kMapFull.src = src;
-  }
-  // init with Vietnamese once DOM is ready (after setLanguage ran)
-  mapState.lang = 'vi';
-  updateMapSrc();
-
-  // UI buttons
-  const btnRealtime = document.getElementById('btnRealtime');
-  const btnStatic = document.getElementById('btnStatic');
-  const btnDark = document.getElementById('btnDark');
-  const btnLight = document.getElementById('btnLight');
-  const btnFullscreen = document.getElementById('btnFullscreen');
-
-  function setActive(a,b){ a.classList.add('active'); b.classList.remove('active'); }
-
-  btnRealtime.addEventListener('click', ()=>{ mapState.type='dynamic'; setActive(btnRealtime, btnStatic); updateMapSrc(); });
-  btnStatic.addEventListener('click', ()=>{ mapState.type='static'; setActive(btnStatic, btnRealtime); updateMapSrc(); });
-  btnDark.addEventListener('click', ()=>{ mapState.theme='dark'; setActive(btnDark, btnLight); updateMapSrc(); });
-  btnLight.addEventListener('click', ()=>{ mapState.theme='light'; setActive(btnLight, btnDark); updateMapSrc(); });
-
-  // Fullscreen modal
-  const modal = document.getElementById('mapModal');
-  const btnClose = document.getElementById('btnCloseModal');
-  btnFullscreen.addEventListener('click', ()=>{ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); });
-  btnClose.addEventListener('click', ()=>{ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); });
-  modal.addEventListener('click', (e)=>{ if(e.target===modal){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+  setLanguage('vi');
 </script>
 </body>
 </html>
