@@ -1,245 +1,73 @@
-<!doctype html>
-<html lang="vi">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nguyễn Ngọc Chương — Hồ sơ IT & Quản lý Hạ tầng</title>
-<meta name="description" content="Hồ sơ cá nhân Nguyễn Ngọc Chương - Chuyên gia IT, Quản trị hệ thống, Bảo mật, Ảo hóa, Mail Server, Automation/AI.">
-<meta name="keywords" content="Nguyen Ngoc Chuong, IT Specialist, IT Manager, Mail Server, Security, Virtualization, Automation AI">
-<meta name="author" content="Nguyễn Ngọc Chương">
-<style>
-:root {
-    --accent: #0b74de;
-    --bg: rgba(247,249,252,0.85);
-    --card: rgba(255,255,255,0.95);
-    --muted: #6b7280;
-    --shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: url('3274408.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #0f172a;
-}
-.container {
-    max-width: 980px;
-    margin: auto;
-    padding: 20px;
-}
-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: var(--card);
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: var(--shadow);
-    animation: fadeIn 1s ease;
-}
-header img.avatar {
-    width: 150px;
-    height: 150px;
-    border-radius: 12px;
-    object-fit: contain;
-    background-color: white;
-    padding: 4px;
-    transition: transform 0.3s ease;
-}
-header img.avatar:hover { transform: scale(1.05); }
-
-h1 { margin: 0; font-size: 24px; color: var(--accent); }
-
-section {
-    margin-top: 20px;
-    background: var(--card);
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-    animation: slideUp 0.8s ease;
-}
-
-.btn {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 10px 14px;
-    border-radius: 8px;
-    text-decoration: none;
-    margin-top: 10px;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-.btn:hover { background: #095bb0; transform: translateY(-2px); }
-.icon { margin-right: 8px; }
-
-.flag-container {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 5px;
-    z-index: 999;
-}
-.flag-container img {
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    transition: transform 0.2s ease;
-}
-.flag-container img:hover { transform: scale(1.1); }
-
-ul { list-style: none; padding: 0; }
-ul li { margin-bottom: 8px; }
-
-/* ===== Full-width Banner with Check Point Map ===== */
-.banner {
-    position: relative;
-    width: 100%;
-    height: 500px; /* chỉnh cao hơn để thấy trọn map */
-    border-radius: 0;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    margin-bottom: 20px;
-    animation: fadeIn 1s ease;
-}
-.banner iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    transform: none; /* bỏ zoom để thấy full map */
-}
-
-/* Scrolling text under banner */
-.scrolling-text {
-    overflow: hidden;
-    white-space: nowrap;
-    box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 8px;
-    padding: 8px 0;
-    margin: 0 20px 20px 20px;
-    box-shadow: var(--shadow);
-}
-.scrolling-text span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: scroll-left 12s linear infinite;
-    font-weight: bold;
-    color: var(--accent);
-    font-size: 16px;
-}
-@keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
-
-.map-note { color: var(--muted); font-size: 13px; margin-top: 8px; }
-
-@media(max-width:768px){
-    header { flex-direction: column; text-align: center; }
-    header img.avatar { width: 100px; height: 100px; }
-    .banner { height: 300px; }
-}
-
-@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
-@keyframes slideUp { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyen Ngoc Chuong - Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f7fa;
+    }
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      border-radius: 0;
+      overflow: hidden;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+    .banner iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      transform: none;
+    }
+    .flag-container {
+      position: relative;
+      margin-top: -30px; /* đẩy lên mép dưới banner */
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .flag-container img {
+      width: 36px;
+      height: 24px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+    .flag-container img:hover {
+      transform: scale(1.1);
+      background: rgba(255,255,255,1);
+    }
+  </style>
 </head>
 <body>
-<div class="flag-container">
-    <img src="vn_flag_icon.png" alt="Tiếng Việt" onclick="setLanguage('vi')">
-    <img src="en_flag_icon.png" alt="English" onclick="setLanguage('en')">
-</div>
-
-  <!-- Full-width Banner with Check Point Map -->
+  <!-- Banner Check Point Threat Map -->
   <div class="banner">
     <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
   </div>
 
-<div class="container">
-
-  <!-- Scrolling text -->
-  <div class="scrolling-text">
-      <span data-vi="TẬN TÂM - TẬN LỰC - TRUNG THÀNH - TRUNG THỰC" 
-            data-en="DEDICATION - EFFORT - LOYALTY - HONESTY">
-          TẬN TÂM - TẬN LỰC - TRUNG THÀNH - TRUNG THỰC
-      </span>
+  <!-- Flag icons ngay dưới banner -->
+  <div class="flag-container">
+    <img src="vn_flag_icon.png" alt="Tiếng Việt" onclick="setLanguage('vi')">
+    <img src="en_flag_icon.png" alt="English" onclick="setLanguage('en')">
   </div>
 
-  <header>
-      <img src="avatar.jpg" alt="Avatar - Nguyễn Ngọc Chương" class="avatar">
-      <div>
-          <h1 data-vi="Nguyễn Ngọc Chương" data-en="Nguyen Ngoc Chuong">Nguyễn Ngọc Chương</h1>
-          <p><span class="icon">📧</span><span data-vi="johnpak7849@gmail.com" data-en="johnpak7849@gmail.com">johnpak7849@gmail.com</span></p>
-          <p><span class="icon">📱</span><span data-vi="0935 845 754" data-en="+84 935 845 754">0935 845 754</span></p>
-          <a class="btn" href="https://cv-download-log.powerautomate-nnc.workers.dev/" data-vi="Tải CV PDF" data-en="Download CV PDF">Tải CV PDF</a>
-      </div>
-  </header>
-
-  <section>
-      <h2 data-vi="Giới thiệu" data-en="About Me">Giới thiệu</h2>
-      <p data-vi="Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT."
-         data-en="I have many years of experience in the IT field, with persistence and a constant desire to learn. My career goal is to work as an IT Specialist or IT Manager.">
-         Tôi nhiều năm kinh nghiệm trong lĩnh vực CNTT, kiên trì và luôn học hỏi. Mong muốn làm việc ở vị trí Chuyên viên hoặc Quản lý CNTT.
-      </p>
-  </section>
-
-  <section>
-      <h2 data-vi="Kinh nghiệm" data-en="Experience">Kinh nghiệm</h2>
-      <ul>
-          <li data-vi="Hiện tại: Tôi có nhiều kinh nghiệm trong việc triển khai trọn gói các dự án CNTT, bao gồm triển khai hạ tầng, cấu hình hệ thống, giải pháp an ninh mạng, phát triển phần mềm và tự động hóa quy trình, cũng như hỗ trợ kỹ thuật sau triển khai."
-              data-en="Now: I have extensive experience in delivering end-to-end IT projects, including infrastructure deployment, system configuration, cybersecurity solutions, software development and process automation, as well as post-deployment technical support.">
-              Now: I have extensive experience in delivering end-to-end IT projects, including infrastructure deployment, system configuration, cybersecurity solutions, software development and process automation, as well as post-deployment technical support.
-          </li>
-          <li data-vi="2008-2024: Trưởng phòng CNTT - VTC Academy"
-              data-en="2008-2024: Head of IT Department - VTC Academy">2008-2024: Trưởng phòng CNTT - VTC Academy</li>
-          <li data-vi="1997-2007: Nhân viên CNTT - Công ty Tân Á"
-              data-en="1997-2007: IT Staff - Tan A Company">1997-2007: Nhân viên CNTT - Công ty Tân Á</li>
-      </ul>
-  </section>
-
-  <section>
-      <h2 data-vi="Kỹ năng" data-en="Skills">Kỹ năng</h2>
-      <ul>
-          <li><span class="icon">🛠️</span><span data-vi="Routing & Switching" data-en="Routing & Switching">Routing & Switching</span></li>
-          <li><span class="icon">🛡️</span><span data-vi="Firewall/IDS/IPS" data-en="Firewall/IDS/IPS">Firewall/IDS</span></li>
-          <li><span class="icon">🪟🐧</span><span data-vi="Windows/Linux Admin" data-en="Windows/Linux Admin">Windows/Linux Admin</span></li>
-          <li><span class="icon">🖥️</span><span data-vi="Virtualization" data-en="Virtualization">Virtualization</span></li>
-          <li><span class="icon">📹</span><span data-vi="CCTV/VMS" data-en="CCTV/VMS">CCTV/VMS</span></li>
-          <li><span class="icon">🤖</span><span data-vi="Automation/AI" data-en="Automation/AI">Automation/AI</span></li>
-          <li><span class="icon">🕵️‍♂️</span><span data-vi="Kinh nghiệm pentest từ xa không cần đến hiện trường" data-en="I have remote penetration testing experience without onsite presence">I have remote penetration testing experience without onsite presence</span></li>
-          <li><span class="icon">📶</span><span data-vi="Home Wifi/Enterprise Wi-Fi/Wi-Fi Mesh/Public Wi-Fi" data-en="Home Wifi/Enterprise Wi-Fi/Wi-Fi Mesh/Public Wi-Fi">Home Wifi/Enterprise Wi-Fi/Wi-Fi Mesh/Public Wi-Fi</span></li>
-          <li><span class="icon">📧</span><span data-vi="Mail Server: On-Premise, Cloud, Hybrid" data-en="Mail Server: On-Premise, Cloud, Hybrid">Mail Server: On-Premise, Cloud, Hybrid</span></li>
-          <li><span class="icon">♻️</span><span data-vi="Backup 3-2-1" data-en="Backup 3-2-1">Backup 3-2-1</span></li>
-          <li><span class="icon">📞</span><span data-vi="PABX/SIP Trunk/PSTN" data-en="PABX/SIP Trunk/PSTN">PABX/SIP Trunk/PSTN</span></li>
-          <li>
-            <span class="icon"><i class="fa-solid fa-users-line"></i></span>
-            <span data-vi="Kinh nghiệm triển khai và quản trị các hệ thống họp trực tuyến hiện đại (Zoom, Microsoft Teams, Google Meet, Webex, Google Beam 3D), các hệ thống họp trực tuyến on-premise. Thành thạo tích hợp AI hỗ trợ tóm tắt, ghi chú và tối ưu quy trình họp, giúp nâng cao hiệu quả giao tiếp và cộng tác trong môi trường hybrid."
-                  data-en="Experience in deploying and managing modern online meeting systems (Zoom, Microsoft Teams, Google Meet, Webex, Google Beam 3D) and on-premise conferencing solutions. Proficient in integrating AI to assist with summaries, note-taking, and meeting workflow optimization, enhancing communication efficiency and collaboration in hybrid environments.">
-              Kinh nghiệm triển khai và quản trị các hệ thống họp trực tuyến hiện đại (Zoom, Microsoft Teams, Google Meet, Webex, Google Beam 3D), các hệ thống họp trực tuyến on-premise. Thành thạo tích hợp AI hỗ trợ tóm tắt, ghi chú và tối ưu quy trình họp, giúp nâng cao hiệu quả giao tiếp và cộng tác trong môi trường hybrid.
-            </span>
-          </li>
-          <li><span class="icon">➕</span><span data-vi="..." data-en="...">...</span></li>
-      </ul>
-  </section>
-
-  <section>
-      <h2 data-vi="Chứng chỉ" data-en="Certifications">Chứng chỉ</h2>
-      <ul>
-          <li><span class="icon">🏅</span><span data-vi="Advanced Linux System Administration - 2007" data-en="Advanced Linux System Administration - 2007">Advanced Linux System Administration - 2007</span></li>
-          <li><span class="icon">🏅</span><span data-vi="Linux Professional Institute 1-2 (LPI) - 2007" data-en="Linux Professional Institute 1-2 (LPI) - 2007">Linux Professional Institute 1-2 (LPI) - 2007</span></li>
-          <li><span class="icon">🏅</span><span data-vi="Microsoft Certificated Solution Associate (MCSA) - 2005" data-en="Microsoft Certificated Solution Associate (MCSA) - 2005">Microsoft Certificated Solution Associate (MCSA) - 2005</span></li>
-      </ul>
-  </section>
-
-</div>
-
-<script>
-  function setLanguage(lang){
-      document.querySelectorAll('[data-vi]').forEach(el=>{
-          el.innerHTML = el.getAttribute('data-'+lang);
-      });
-  }
-  setLanguage('vi');
-</script>
+  <!-- Nội dung CV -->
+  <div class="container">
+    <h2>Nguyen Ngoc Chuong</h2>
+    <p>Email: johnpak7849@gmail.com</p>
+    <p>Phone: 0935 845 754</p>
+    <button>Tải CV PDF</button>
+  </div>
 </body>
 </html>
