@@ -15,11 +15,13 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#0f172a;background:ur
 
 /* Banner Check Point */
 .banner{position:relative;width:100%;height:500px;border-radius:0;overflow:hidden;margin:0 0 28px 0;box-shadow:var(--shadow);} 
-.banner .iframe-wrapper{width:100%;height:100%;overflow:hidden;}
+.banner .iframe-wrapper{width:100%;height:100%;overflow:hidden;position:relative;}
 .banner iframe{width:100%;height:100%;border:0;transform:scale(0.85);transform-origin:top center;}
+
 /* Flag đặt đúng mép dưới banner (giữa) */
-.flag-container{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);display:flex;gap:10px;z-index:9999;} 
-.flag-container img{width:36px;height:24px;border:1px solid #d1d5db;border-radius:6px;background:rgba(255,255,255,0.9);box-shadow:0 4px 12px rgba(0,0,0,0.18);cursor:pointer;transition:transform .2s ease, background .2s ease;position:relative;} 
+.flag-container{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);display:flex;gap:10px;z-index:10000;} 
+.flag-container .flag-wrapper{position:relative;z-index:10001;}
+.flag-container img{width:36px;height:24px;border:1px solid #d1d5db;border-radius:6px;background:rgba(255,255,255,0.9);box-shadow:0 4px 12px rgba(0,0,0,0.18);cursor:pointer;transition:transform .2s ease, background .2s ease;position:relative;z-index:10002;}
 .flag-container img:hover{transform:scale(1.08);background:#fff;}
 /* Tooltip */
 .flag-container img::after {content: attr(title); position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.75); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events:none; transition: opacity 0.3s ease;}
@@ -52,8 +54,12 @@ section{margin-top:18px;background:var(--card);padding:16px;border-radius:14px;b
       <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
     </div>
     <div class="flag-container">
-      <img src="vn_flag_icon.png" alt="Tiếng Việt" title="Tiếng Việt" onclick="setLanguage('vi')">
-      <img src="en_flag_icon.png" alt="English" title="English" onclick="setLanguage('en')">
+      <div class="flag-wrapper">
+        <img src="vn_flag_icon.png" alt="Tiếng Việt" title="Tiếng Việt" onclick="setLanguage('vi')">
+      </div>
+      <div class="flag-wrapper">
+        <img src="en_flag_icon.png" alt="English" title="English" onclick="setLanguage('en')">
+      </div>
     </div>
   </div>
 
@@ -124,8 +130,4 @@ section{margin-top:18px;background:var(--card);padding:16px;border-radius:14px;b
   </div>
 
 <script>
-function setLanguage(lang){document.querySelectorAll('[data-vi]').forEach(el=>{el.innerHTML=el.getAttribute('data-'+lang);});}
-setLanguage('vi');
-</script>
-</body>
-</html>
+function setLanguage(lang){document.querySelectorAll('[data-vi]').forEach(el=>{el.innerHTM
