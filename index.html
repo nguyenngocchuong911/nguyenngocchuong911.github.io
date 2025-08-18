@@ -21,6 +21,7 @@ body {
     background: url('3274408.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #0f172a;
+    padding-bottom: 300px; /* để chừa chỗ cho map cố định */
 }
 .container {
     max-width: 980px;
@@ -124,26 +125,29 @@ ul li { margin-bottom: 8px; }
 }
 @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-/* ===== Cyber Threat Map section ===== */
-.map-card h2 { margin-top: 0; }
-.map-embed {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/9;
-    background: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
+/* Map footer fixed */
+.map-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: 999;
+  border-top: 2px solid #0b74de;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.25);
 }
-.map-embed iframe {
-    position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+.map-footer iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
-.map-note { color: var(--muted); font-size: 13px; margin-top: 8px; }
 
 @media(max-width:768px){
     header { flex-direction: column; text-align: center; }
     header img.avatar { width: 100px; height: 100px; }
     .banner img { max-height: 200px; }
+    .map-footer { height: 200px; }
+    body { padding-bottom: 200px; }
 }
 
 @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
@@ -180,15 +184,6 @@ ul li { margin-bottom: 8px; }
           <a class="btn" href="https://cv-download-log.powerautomate-nnc.workers.dev/" data-vi="Tải CV PDF" data-en="Download CV PDF">Tải CV PDF</a>
       </div>
   </header>
-
-  <!-- ====== Cyber Threat Map Section (Check Point) ====== -->
-  <section class="map-card" id="cybermap">
-    <h2 data-vi="Bản đồ tấn công mạng (Realtime)" data-en="Cyber Threat Live Map (Realtime)">Cyber Threat Live Map (Check Point)</h2>
-    <div class="map-embed">
-      <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
-    </div>
-    <div class="map-note" data-vi="Nguồn dữ liệu: Check Point Threat Map — hiển thị theo thời gian thực." data-en="Data source: Check Point Threat Map — real‑time display.">Nguồn dữ liệu: Check Point Threat Map — hiển thị theo thời gian thực.</div>
-  </section>
 
   <section>
       <h2 data-vi="Giới thiệu" data-en="About Me">Giới thiệu</h2>
@@ -246,6 +241,11 @@ ul li { margin-bottom: 8px; }
       </ul>
   </section>
 
+</div>
+
+<!-- Map fixed footer -->
+<div class="map-footer">
+  <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
 </div>
 
 <script>
