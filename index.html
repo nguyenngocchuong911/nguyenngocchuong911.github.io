@@ -20,7 +20,6 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#0f172a;background:ur
 .flag-container{position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);display:flex;gap:10px;z-index:9999;} 
 .flag-container img{width:36px;height:24px;border:1px solid #d1d5db;border-radius:6px;background:rgba(255,255,255,0.9);box-shadow:0 4px 12px rgba(0,0,0,0.18);cursor:pointer;transition:transform .2s ease, background .2s ease;position:relative;} 
 .flag-container img:hover{transform:scale(1.08);background:#fff;}
-
 /* Tooltip */
 .flag-container img::after {content: attr(title); position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.75); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events:none; transition: opacity 0.3s ease;}
 .flag-container img:hover::after {opacity: 1;}
@@ -32,7 +31,8 @@ body{font-family:Arial,Helvetica,sans-serif;margin:0;color:#0f172a;background:ur
 
 /* Card thông tin */
 header{display:flex;align-items:center;gap:20px;background:var(--card);border-radius:14px;padding:18px 18px;box-shadow:var(--shadow);} 
-header img.avatar{width:150px;height:150px;border-radius:12px;object-fit:cover;background:#fff;padding:4px;}
+header img.avatar{width:150px;height:150px;border-radius:50%;object-fit:contain;background:#fff;padding:4px;box-shadow:0 0 15px rgba(11,116,222,0.6), 0 0 30px rgba(11,116,222,0.4);transition:box-shadow 0.3s ease;}
+header img.avatar:hover{box-shadow:0 0 20px rgba(11,116,222,0.9),0 0 40px rgba(11,116,222,0.6);}
 h1{margin:0 0 6px 0;font-size:24px;color:#0b74de}
 section{margin-top:18px;background:var(--card);padding:16px;border-radius:14px;box-shadow:var(--shadow);} 
 .btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;margin-top:10px;}
@@ -86,17 +86,17 @@ section{margin-top:18px;background:var(--card);padding:16px;border-radius:14px;b
     <section>
       <h2 data-vi="Kỹ năng" data-en="Skills">Kỹ năng</h2>
       <ul>
-        <li><span class="icon">🛠️</span><span data-vi="Routing & Switching" data-en="Routing & Switching">Routing & Switching</span></li>
-        <li><span class="icon">🛡️</span><span data-vi="Firewall/IDS/IPS" data-en="Firewall/IDS/IPS">Firewall/IDS/IPS</span></li>
-        <li><span class="icon">🪟🐧</span><span data-vi="Windows/Linux Admin" data-en="Windows/Linux Admin">Windows/Linux Admin</span></li>
-        <li><span class="icon">🖥️</span><span data-vi="Virtualization" data-en="Virtualization">Virtualization</span></li>
-        <li><span class="icon">📹</span><span data-vi="CCTV/VMS" data-en="CCTV/VMS">CCTV/VMS</span></li>
-        <li><span class="icon">🤖</span><span data-vi="Automation/AI" data-en="Automation/AI">Automation/AI</span></li>
-        <li><span class="icon">🕵️‍♂️</span><span data-vi="Kinh nghiệm pentest từ xa không cần đến hiện trường" data-en="I have remote penetration testing experience without onsite presence">Kinh nghiệm pentest từ xa không cần đến hiện trường</span></li>
-        <li><span class="icon">📶</span><span data-vi="Home Wifi/Enterprise Wi‑Fi/Wi‑Fi Mesh/Public Wi‑Fi" data-en="Home Wifi/Enterprise Wi‑Fi/Wi‑Fi Mesh/Public Wi‑Fi">Home Wifi/Enterprise Wi‑Fi/Wi‑Fi Mesh/Public Wi‑Fi</span></li>
-        <li><span class="icon">📧</span><span data-vi="Mail Server: On‑Premise, Cloud, Hybrid" data-en="Mail Server: On‑Premise, Cloud, Hybrid">Mail Server: On‑Premise, Cloud, Hybrid</span></li>
-        <li><span class="icon">♻️</span><span data-vi="Backup 3‑2‑1" data-en="Backup 3‑2‑1">Backup 3‑2‑1</span></li>
-        <li><span class="icon">📞</span><span data-vi="PABX/SIP Trunk/PSTN" data-en="PABX/SIP Trunk/PSTN">PABX/SIP Trunk/PSTN</span></li>
+        <li>🛠️ <span data-vi="Routing & Switching" data-en="Routing & Switching">Routing & Switching</span></li>
+        <li>🛡️ <span data-vi="Firewall/IDS/IPS" data-en="Firewall/IDS/IPS">Firewall/IDS/IPS</span></li>
+        <li>🪟🐧 <span data-vi="Windows/Linux Admin" data-en="Windows/Linux Admin">Windows/Linux Admin</span></li>
+        <li>🖥️ <span data-vi="Virtualization" data-en="Virtualization">Virtualization</span></li>
+        <li>📹 <span data-vi="CCTV/VMS" data-en="CCTV/VMS">CCTV/VMS</span></li>
+        <li>🤖 <span data-vi="Automation/AI" data-en="Automation/AI">Automation/AI</span></li>
+        <li>🕵️‍♂️ <span data-vi="Kinh nghiệm pentest từ xa không cần đến hiện trường" data-en="I have remote penetration testing experience without onsite presence">Kinh nghiệm pentest từ xa không cần đến hiện trường</span></li>
+        <li>📶 <span data-vi="Home Wifi/Enterprise Wi‑Fi/Wi‑Fi Mesh/Public Wi‑Fi" data-en="Home Wifi/Enterprise Wi‑Fi/Wi‑Fi Mesh/Public Wi‑Fi">Home Wifi/Enterprise Wi‑Fi/Wi‑Fi Mesh/Public Wi‑Fi</span></li>
+        <li>📧 <span data-vi="Mail Server: On‑Premise, Cloud, Hybrid" data-en="Mail Server: On‑Premise, Cloud, Hybrid">Mail Server: On‑Premise, Cloud, Hybrid</span></li>
+        <li>♻️ <span data-vi="Backup 3‑2‑1" data-en="Backup 3‑2‑1">Backup 3‑2‑1</span></li>
+        <li>📞 <span data-vi="PABX/SIP Trunk/PSTN" data-en="PABX/SIP Trunk/PSTN">PABX/SIP Trunk/PSTN</span></li>
         <li>
           <span class="icon"><i class="fa-solid fa-users-line"></i></span>
           <span data-vi="Kinh nghiệm triển khai và quản trị các hệ thống họp trực tuyến hiện đại (Zoom, Microsoft Teams, Google Meet, Webex, Google Beam 3D), các hệ thống họp trực tuyến on-premise. Thành thạo tích hợp AI hỗ trợ tóm tắt, ghi chú và tối ưu quy trình họp, giúp nâng cao hiệu quả giao tiếp và cộng tác trong môi trường hybrid."
@@ -104,7 +104,6 @@ section{margin-top:18px;background:var(--card);padding:16px;border-radius:14px;b
             Kinh nghiệm triển khai và quản trị các hệ thống họp trực tuyến hiện đại (Zoom, Microsoft Teams, Google Meet, Webex, Google Beam 3D), các hệ thống họp trực tuyến on-premise. Thành thạo tích hợp AI hỗ trợ tóm tắt, ghi chú và tối ưu quy trình họp, giúp nâng cao hiệu quả giao tiếp và cộng tác trong môi trường hybrid.
           </span>
         </li>
-        <li><span class="icon">➕</span><span data-vi="..." data-en="...">...</span></li>
       </ul>
     </section>
 
