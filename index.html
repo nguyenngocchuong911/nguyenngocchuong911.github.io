@@ -21,7 +21,6 @@ body {
     background: url('3274408.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #0f172a;
-    padding-bottom: 300px; /* để chừa chỗ cho map cố định */
 }
 .container {
     max-width: 980px;
@@ -93,16 +92,35 @@ section {
 ul { list-style: none; padding: 0; }
 ul li { margin-bottom: 8px; }
 
-.banner { margin-bottom: 20px; animation: fadeIn 1s ease; }
-.banner img {
+/* ===== Banner with Check Point Map ===== */
+.banner {
+    position: relative;
     width: 100%;
-    max-height: 280px;
-    object-fit: cover;
+    height: 280px;
     border-radius: 16px;
+    overflow: hidden;
     box-shadow: var(--shadow);
-    transition: transform 0.4s ease;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease;
 }
-.banner img:hover { transform: scale(1.02); }
+.banner iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.banner-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background: rgba(0,0,0,0.3);
+}
+.banner-overlay h1 { font-size: 26px; margin: 0; }
+.banner-overlay p { font-size: 15px; margin: 4px 0 0; }
 
 /* Scrolling text under banner */
 .scrolling-text {
@@ -125,29 +143,13 @@ ul li { margin-bottom: 8px; }
 }
 @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
 
-/* Map footer fixed */
-.map-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 300px;
-  z-index: 999;
-  border-top: 2px solid #0b74de;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.25);
-}
-.map-footer iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
+.map-note { color: var(--muted); font-size: 13px; margin-top: 8px; }
 
 @media(max-width:768px){
     header { flex-direction: column; text-align: center; }
     header img.avatar { width: 100px; height: 100px; }
-    .banner img { max-height: 200px; }
-    .map-footer { height: 200px; }
-    body { padding-bottom: 200px; }
+    .banner { height: 200px; }
+    .banner-overlay h1 { font-size: 20px; }
 }
 
 @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
@@ -162,9 +164,13 @@ ul li { margin-bottom: 8px; }
 </div>
 <div class="container">
 
-  <!-- Banner AI -->
+  <!-- Banner with Check Point Map -->
   <div class="banner">
-      <img src="banner-ai.png" alt="AI Datacenter Banner - Nguyễn Ngọc Chương">
+    <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
+    <div class="banner-overlay">
+      <h1>Nguyễn Ngọc Chương</h1>
+      <p>Cybersecurity & IT Infrastructure</p>
+    </div>
   </div>
 
   <!-- Scrolling text -->
@@ -241,11 +247,6 @@ ul li { margin-bottom: 8px; }
       </ul>
   </section>
 
-</div>
-
-<!-- Map fixed footer -->
-<div class="map-footer">
-  <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
 </div>
 
 <script>
