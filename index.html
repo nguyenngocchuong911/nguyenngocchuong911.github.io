@@ -107,20 +107,9 @@ ul li { margin-bottom: 8px; }
     width: 100%;
     height: 100%;
     border: none;
+    transform: scale(1.1); /* zoom map */
+    transform-origin: center;
 }
-.banner-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    background: rgba(0,0,0,0.3);
-}
-.banner-overlay h1 { font-size: 26px; margin: 0; }
-.banner-overlay p { font-size: 15px; margin: 4px 0 0; }
 
 /* Scrolling text under banner */
 .scrolling-text {
@@ -149,7 +138,6 @@ ul li { margin-bottom: 8px; }
     header { flex-direction: column; text-align: center; }
     header img.avatar { width: 100px; height: 100px; }
     .banner { height: 200px; }
-    .banner-overlay h1 { font-size: 20px; }
 }
 
 @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
@@ -167,10 +155,6 @@ ul li { margin-bottom: 8px; }
   <!-- Banner with Check Point Map -->
   <div class="banner">
     <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
-    <div class="banner-overlay">
-      <h1>Nguyễn Ngọc Chương</h1>
-      <p>Cybersecurity & IT Infrastructure</p>
-    </div>
   </div>
 
   <!-- Scrolling text -->
