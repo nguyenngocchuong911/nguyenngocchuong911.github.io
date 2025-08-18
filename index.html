@@ -92,12 +92,12 @@ section {
 ul { list-style: none; padding: 0; }
 ul li { margin-bottom: 8px; }
 
-/* ===== Banner with Check Point Map ===== */
+/* ===== Full-width Banner with Check Point Map ===== */
 .banner {
     position: relative;
     width: 100%;
-    height: 280px;
-    border-radius: 16px;
+    height: 320px;
+    border-radius: 0;
     overflow: hidden;
     box-shadow: var(--shadow);
     margin-bottom: 20px;
@@ -107,7 +107,7 @@ ul li { margin-bottom: 8px; }
     width: 100%;
     height: 100%;
     border: none;
-    transform: scale(1.1); /* zoom map */
+    transform: scale(1.1);
     transform-origin: center;
 }
 
@@ -119,7 +119,7 @@ ul li { margin-bottom: 8px; }
     background: rgba(255, 255, 255, 0.85);
     border-radius: 8px;
     padding: 8px 0;
-    margin-bottom: 20px;
+    margin: 0 20px 20px 20px;
     box-shadow: var(--shadow);
 }
 .scrolling-text span {
@@ -150,12 +150,13 @@ ul li { margin-bottom: 8px; }
     <img src="vn_flag_icon.png" alt="Tiếng Việt" onclick="setLanguage('vi')">
     <img src="en_flag_icon.png" alt="English" onclick="setLanguage('en')">
 </div>
-<div class="container">
 
-  <!-- Banner with Check Point Map -->
+  <!-- Full-width Banner with Check Point Map -->
   <div class="banner">
     <iframe src="https://threatmap.checkpoint.com/" title="Check Point Threat Map"></iframe>
   </div>
+
+<div class="container">
 
   <!-- Scrolling text -->
   <div class="scrolling-text">
